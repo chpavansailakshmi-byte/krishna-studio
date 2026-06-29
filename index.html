@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Krishna Studio Tenali | Elite Photography</title>
+    <style>
+        /* Premium Typography & Variable Setup */
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Cinzel', 'Playfair Display', 'Segoe UI', serif; }
+        html { scroll-behavior: smooth; }
+        
+        body { 
+            background: #090a0f; 
+            background-image: 
+                radial-gradient(at 10% 10%, rgba(197, 160, 89, 0.08) 0px, transparent 40%),
+                radial-gradient(at 90% 90%, rgba(30, 41, 59, 0.3) 0px, transparent 50%);
+            color: #f1f5f9; 
+            line-height: 1.8; 
+            letter-spacing: 0.5px;
+        }
+
+        /* Standardized Editorial Containers */
+        .wrapper { max-width: 1050px; margin: 0 auto; padding: 0 2rem; }
+        section { padding: 5rem 0; border-bottom: 1px solid rgba(255, 255, 255, 0.04); }
+        section:last-of-type { border-bottom: none; }
+
+        /* Premium Headings */
+        h2 { 
+            font-size: 1.5rem; 
+            font-weight: 400; 
+            text-transform: uppercase; 
+            letter-spacing: 4px; 
+            color: #c5a059; /* Classic Champagne Gold Accent */
+            margin-bottom: 2.5rem;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        h2::after { content: ''; flex-grow: 1; height: 1px; background: linear-gradient(to right, rgba(197,160,89,0.3), transparent); }
+
+        
+        /* Elegant Luxury Intro Header */
+        header { 
+            text-align: center; 
+            padding: 8rem 1.5rem 6rem 1.5rem;
+            background: linear-gradient(to bottom, #0d0f14, #090a0f);
+        }
+        /* Animated Letter Base Settings */
+        .studio-logo { 
+            font-size: 3.8rem; 
+            font-weight: 300; 
+            letter-spacing: 4px; /* Reduced slightly so split letters sit naturally */
+            color: #ffffff;
+            text-transform: uppercase;
+            line-height: 1.2;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            user-select: none;
+        }
+
+/* Individual Pop Letter Engine */
+        .pop-letter {
+            display: inline-block;
+            transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), color 0.2s ease;
+            cursor: default;
+        }
+
+/* Gold Variant Base Class */
+        .pop-letter.gold {
+            color: #c5a059;
+        }
+
+/* THE POP UP MAGIC: Triggers when mouse moves over the letter */
+        .pop-letter:hover {
+            transform: translateY(-12px) scale(1.25); /* Puts the letter up and makes it larger */
+            color: #ffffff;
+            text-shadow: 0 0 20px rgba(197, 160, 89, 0.6); /* Adds an elegant gold glow */
+        }
+
+/* If hovering over a white letter, make it turn champagne gold */
+        .pop-letter:not(.gold):hover {
+            color: #c5a059;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+        }
+        .divider-line { width: 60px; height: 2px; background: #c5a059; margin: 1.5rem auto; }
+        .tagline { 
+            font-size: 0.85rem; 
+            color: #94a3b8; 
+            letter-spacing: 6px; 
+            text-transform: uppercase; 
+            font-weight: 500; 
+        }
+        .heritage-tag {
+            font-size: 0.75rem;
+            color: #c5a059;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-top: 1rem;
+            opacity: 0.8;
+        }
+
+        /* Split-Row Dynamic Grid for About & Legacy Layout */
+        .editorial-row { 
+            display: grid; 
+            grid-template-columns: 1.2fr 0.8fr; 
+            gap: 4rem; 
+            align-items: center; 
+        }
+        .about-essay { font-size: 1.1rem; color: #cbd5e1; font-weight: 300; line-height: 2; }
+        .about-essay strong { color: #ffffff; font-weight: 500; }
+        
+        .metric-card { 
+            background: rgba(255,255,255,0.02); 
+            border: 1px solid rgba(197, 160, 89, 0.15); 
+            border-radius: 16px; 
+            padding: 2.5rem;
+            text-align: center;
+        }
+        .metric-item { margin-bottom: 1.5rem; }
+        .metric-item:last-child { margin-bottom: 0; }
+        .metric-num { font-size: 2.2rem; font-weight: 300; color: #c5a059; }
+        .metric-label { font-size: 0.75rem; color: #64748b; text-transform: uppercase; letter-spacing: 2px; margin-top: 0.25rem; }
+
+        /* Structured Elegant Two-Column Layout for FAQs & Policies */
+        .dual-column-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        /* Elegant Interactive Accordion Items */
+        .faq-block { background: rgba(255,255,255,0.01); border: 1px solid rgba(255,255,255,0.04); border-radius: 12px; margin-bottom: 0.75rem; overflow: hidden; }
+        .faq-trigger { padding: 1.2rem; font-size: 0.95rem; font-weight: 500; color: #e2e8f0; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+        .faq-trigger:hover { background: rgba(255,255,255,0.02); color: #c5a059; }
+        .faq-content { padding: 0 1.2rem; max-height: 0; overflow: hidden; transition: max-height 0.3s ease, padding 0.3s ease; color: #94a3b8; font-size: 0.9rem; }
+        .faq-block.open .faq-content { max-height: 150px; padding: 0 1.2rem 1.2rem 1.2rem; }
+        .faq-icon { transition: transform 0.3s; color: #c5a059; }
+        .faq-block.open .faq-icon { transform: rotate(45deg); }
+
+        /* Premium Minimalist Review Sliders */
+        .testimonial-stream { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+        .quote-box { background: rgba(255,255,255,0.01); border: 1px solid rgba(255,255,255,0.03); padding: 2rem; border-radius: 16px; position: relative; }
+        .quote-text { font-size: 0.95rem; color: #94a3b8; font-style: italic; line-height: 1.8; }
+        .quote-author { margin-top: 1.5rem; font-size: 0.85rem; font-weight: 600; color: #ffffff; letter-spacing: 1px; text-transform: uppercase; display: flex; justify-content: space-between; }
+        .quote-author span { color: #c5a059; }
+
+        
+        
+        .booking-pitch-text h3 { font-size: 2rem; font-weight: 300; margin-bottom: 1rem; letter-spacing: 1px; }
+        .booking-pitch-text h3 span { color: #c5a059; }
+        .booking-pitch-text p { color: #94a3b8; font-size: 0.95rem; margin-bottom: 2rem; }
+
+        /* Luxury Contact Action Triggers */
+        .action-routing-list { display: flex; flex-direction: column; gap: 12px; }
+        .action-row-btn { 
+            display: flex; align-items: center; justify-content: center; gap: 10px;
+            padding: 1.1rem; border-radius: 12px; font-size: 1rem; font-weight: 600;
+            text-decoration: none; cursor: pointer; transition: all 0.3s ease; text-transform: uppercase; letter-spacing: 1px;
+        }
+        .btn-gold { background: #c5a059; color: #090a0f; }
+        .btn-gold:hover { background: #e0bb73; transform: translateY(-2px); }
+        .btn-outline { background: transparent; color: #ffffff; border: 1px solid rgba(255,255,255,0.1); }
+        .btn-outline:hover { background: rgba(255,255,255,0.03); border-color: #c5a059; transform: translateY(-2px); }
+
+        /* Dynamic Custom Calculator Panel styling */
+        .calculator-sub-panel { background: rgba(9, 10, 15, 0.6); border: 1px solid rgba(255,255,255,0.05); border-radius: 16px; padding: 1.7rem; }
+        .select-field-group { margin-bottom: 1.2rem; }
+        .select-field-group label { display: block; font-size: 0.75rem; color: #64748b; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 0.5rem; font-weight: 600; }
+        select { width: 100%; padding: 0.9rem; background: #131722; border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; color: #f1f5f9; font-size: 0.95rem; outline: none; transition: border-color 0.3s; cursor: pointer; }
+        select:focus { border-color: #c5a059; }
+        
+        .price-output-tag { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 1.2rem; margin-top: 1.2rem; text-align: center; }
+        .price-output-tag p { font-size: 0.75rem; color: #64748b; text-transform: uppercase; letter-spacing: 1px; }
+        .price-output-tag div { font-size: 2.4rem; font-weight: 300; color: #c5a059; margin-top: 0.2rem; }
+
+        footer { text-align: center; padding: 4rem 1.5rem; color: #334155; font-size: 0.8rem; letter-spacing: 1px; text-transform: uppercase; }
+
+        /* Fluid Mobile Adaptability */
+        @media(max-width: 850px) {
+            .editorial-row, .dual-column-layout, .testimonial-stream, .finale-booking-section { grid-template-columns: 1fr; gap: 2.5rem; }
+            .studio-logo { font-size: 2.5rem; }
+            .finale-booking-section { padding: 2rem 1.5rem; }
+        }
+        .era-tag {
+            font-size: 0.7rem;
+            color: #c5a059;
+            background: rgba(197, 160, 89, 0.1);
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            letter-spacing: 1px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        /* Unbreakable Premium Header-Only Backdrop */
+        .top-hero-banner {
+            position: relative;
+            width: 100%;
+    
+    /* Built completely using code - no external web links to break! */
+            background-color: #090a0f;
+            background-image: 
+                radial-gradient(circle at 50% 30%, rgba(197, 160, 89, 0.18) 0%, transparent 60%),
+                radial-gradient(circle at 20% 20%, rgba(59, 130, 246, 0.12) 0%, transparent 50%),
+                radial-gradient(circle at 80% 40%, rgba(147, 51, 234, 0.1) 0%, transparent 50%);
+        
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+                }
+
+/* Re-adjust header padding slightly to give it breathing room */
+        header { 
+            text-align: center; 
+            padding: 7rem 1.5rem; 
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-hero-banner">
+        <header>
+            <div class="studio-logo">
+                <span class="pop-letter">K</span>
+                <span class="pop-letter">R</span>
+                <span class="pop-letter">I</span>
+                <span class="pop-letter">S</span>
+                <span class="pop-letter">H</span>
+                <span class="pop-letter">N</span>
+                <span class="pop-letter">A</span>
+                <span style="margin-right: 15px;"></span>
+                <span class="pop-letter gold">S</span>
+                <span class="pop-letter gold">T</span>
+                <span class="pop-letter gold">U</span>
+                <span class="pop-letter gold">D</span>
+                <span class="pop-letter gold">I</span>
+                <span class="pop-letter gold">O</span>
+            </div>
+            <div class="divider-line"></div>
+            <div class="tagline">Digital Photo Studio & Video Lab</div>
+            <div class="heritage-tag">Four Decades of Fine Art Documentation — Est. 1980</div>
+        </header>
+    </div>
+    <div class="wrapper">
+        
+        <section id="heritage">
+            <h2>Our Journey</h2>
+            <div class="editorial-row">
+                <p class="about-essay">
+                    Located in the heart of Kothapeta, Tenali, <strong>Krishna Studio</strong> has stood as a premier destination for high-end event coverage for over 46 years. Founded on the principles of immaculate archival precision, our work gracefully bridges ancestral tradition with modern cinematic vision.<br><br>
+                    We preserve historical frames, marital unions, and legacy events with unparalleled dedication, ensuring your life's milestone transformations are turned into timeless artistic narratives.
+                </p>
+                <div class="metric-card">
+                    <div class="metric-item">
+                        <div class="metric-num">1980</div>
+                        <div class="metric-label">Founded In Tenali</div>
+                    </div>
+                    <div class="metric-item" style="border-top: 1px solid rgba(255,255,255,0.04); padding-top: 1.5rem;">
+                        <div class="metric-num">46+</div>
+                        <div class="metric-label">Years of Mastery</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="details">
+            <div class="dual-column-layout">
+                
+                <div>
+                    <h2>Client Queries</h2>
+                    <div class="faq-block">
+                        <div class="faq-trigger" onclick="toggleAccordion(this)">Delivery Dynamic <span class="faq-icon">+</span></div>
+                        <div class="faq-content">Masterfully calibrated digital sets are dispatched within 7–10 working days. Signature print volumes take an extra 15 days inside our custom design labs.</div>
+                    </div>
+                    <div class="faq-block">
+                        <div class="faq-trigger" onclick="toggleAccordion(this)">Geographic Reach <span class="faq-icon">+</span></div>
+                        <div class="faq-content">While deep-rooted in Andhra Pradesh, our elite crews travel internationally for destination wedding assignments and milestone event coverages.</div>
+                    </div>
+                    <div class="faq-block">
+                        <div class="faq-trigger" onclick="toggleAccordion(this)">Retainer Structure <span class="faq-icon">+</span></div>
+                        <div class="faq-content">Calendar dates are fully locked upon a 30% advance booking retainer. 50% is taken on the assignment date, with the remaining 20% handled on file delivery.</div>
+                    </div>
+                </div>
+
+                <div>
+                    <h2>Studio Covenants</h2>
+                    <div style="margin-bottom: 1.5rem;">
+                        <h4 style="color:#ffffff; font-size:0.95rem; margin-bottom:0.4rem; font-weight:500; letter-spacing:1px;">Media Copyright</h4>
+                        <p style="color:#94a3b8; font-size:0.88rem; line-height:1.7;">All archival master properties remain the creative asset of Krishna Studio. Clients receive unrestricted, high-resolution personal printing and sharing privileges.</p>
+                    </div>
+                    <div>
+                        <h4 style="color:#ffffff; font-size:0.95rem; margin-bottom:0.4rem; font-weight:500; letter-spacing:1px;">Curation Guardrails</h4>
+                        <p style="color:#94a3b8; font-size:0.88rem; line-height:1.7;">To protect our historic quality standards, we strictly share fully polished, color-graded deliverables. Raw data assets are safely managed within our system vaults.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="testimonials">
+            <h2>Generations of Trust</h2>
+            <div class="testimonial-stream">
+                
+                <div class="quote-box" style="border-left: 2px solid rgba(197, 160, 89, 0.4);">
+                    <p class="quote-text">"Krishna Studio has been a part of our family milestones since the very beginning. They shot my elder brother's wedding album in 1983 in black-and-white, and the clarity of those prints is still perfect today. True pioneers of photography in Tenali."</p>
+                    <div class="quote-author">G. Vasudev Rao <span class="era-tag">Client Since 1983</span></div>
+                </div>
+
+                <div class="quote-box" style="border-left: 2px solid rgba(197, 160, 89, 0.4);">
+                    <p class="quote-text">"An incredible 46-year legacy. They captured my wedding back in 1999, and last month they covered my son's grand marriage ceremony. Seeing the same studio maintain such high standards and upgrade to beautiful modern cinematography is amazing."</p>
+                    <div class="quote-author">K. Satyanarayana <span class="era-tag">Client Since 1999</span></div>
+                </div>
+
+                <div class="quote-box" style="border-left: 2px solid rgba(197, 160, 89, 0.4);">
+                    <p class="quote-text">"My parents insisted we only book Krishna Studio for my engagement because of their decades of reputation near Kothapeta. I was blown away by their cinematic teaser video. They seamlessly combine traditional values with modern editing trends!"</p>
+                    <div class="quote-author">Divya Bharathi <span class="era-tag">Client Since 2021</span></div>
+                </div>
+
+                <div class="quote-box" style="border-left: 2px solid rgba(197, 160, 89, 0.4);">
+                    <p class="quote-text">"Whether it is a small cradle ceremony, a half-saree function, or a massive five-day marriage event, this studio delivers perfection. Their color lab work is legendary in Guntur district. Highly recommend their transparent budget package planning."</p>
+                    <div class="quote-author">Ramanjaneyulu M. <span class="era-tag">Client Given ★★★★★</span></div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="reserve">
+            <div class="finale-booking-section">
+                
+                <div class="booking-pitch-text">
+                    <h3>Secure Your <span>Event </span></h3>
+                    <p>Initiate a consultation desk request or configure a calculated blueprint. Our calendar stays tightly booked for major wedding seasons across AP.</p>
+                    
+                    <div class="action-routing-list">
+                        <a href="https://wa.me/919949669773?text=Hello%20Krishna%20Studio,%20I%20would%20like%20to%20consult%20about%20booking%20an%20upcoming%20event." 
+                           target="_blank" class="action-row-btn btn-gold">
+                            💬 Secure via WhatsApp
+                        </a>
+                        <a href="tel:+919949669773" class="action-row-btn btn-outline">
+                            📞 Dial Studio Representative
+                        </a>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Krishna+Studio+Kothapeta+Tenali" target="_blank" class="action-row-btn btn-outline">
+                            📍 Open Route in Google Maps
+                        </a>
+                        
+                    </div>
+                </div>
+
+                
+
+            </div>
+        </section>
+
+    </div>
+
+    <script>
+        // Smooth Accordion Engine
+        function toggleAccordion(triggerElement) {
+            const block = triggerElement.parentElement;
+            block.classList.toggle('open');
+        }
+
+        // Precision Math Budget Estimation Engine 
+        function calculateEliteBudget() {
+            const baseValue = parseInt(document.getElementById('eventSelect').value);
+            const additiveValue = parseInt(document.getElementById('videoSelect').value);
+            const absoluteSum = baseValue + additiveValue;
+            
+            document.getElementById('priceDisplay').innerText = "₹" + absoluteSum.toLocaleString('en-IN');
+        }
+    </script>
+</body>
+</html>
